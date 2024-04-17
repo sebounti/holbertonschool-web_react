@@ -1,5 +1,6 @@
 const $ = require("jquery");
 const _ = require("lodash");
+import holbertonLogo from "../assets/holberton-logo.jpg";
 
 let count = 0;
 
@@ -16,7 +17,11 @@ const $button = $("<button>Click here to get started</button>").on(
   }),
 );
 
+// Ajout du div pour le logo en haut du corps du document
 $("body").prepend("<div id='logo'></div>");
+const $logo = $("<img>").attr("src", holbertonLogo);
+$("#logo").prepend($logo);
+
 $("body").append("<p>Holberton Dashboard</p>");
 $("body").append("<p>Dashboard data for the students</p>");
 $("body").append($button);
