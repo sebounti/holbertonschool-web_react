@@ -34,6 +34,17 @@ module.exports = {
           },
         ],
       },
+      {
+        // Règle séparée pour le transpilage JavaScript
+        test: /\.js$/, // Appliquer le loader aux fichiers .js
+        exclude: /node_modules/, // Exclure les fichiers dans node_modules
+        use: {
+          loader: "babel-loader", // Utiliser babel-loader
+          options: {
+            presets: ["@babel/preset-env"], // Utiliser le preset-env
+          },
+        },
+      },
     ],
   },
 };
