@@ -1,10 +1,15 @@
+
+body {
+  position:relative;
+}
+
 #count {
   position: absolute;
   right: 10px;
   font-weight: bold;
 }
 
-#logo {
+img {
   width: 200px;
   height: 200px;
   background-image: url('../assets/holberton-logo.jpg');
