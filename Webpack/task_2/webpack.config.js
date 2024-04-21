@@ -1,7 +1,6 @@
 const path = require("path");
 
 module.exports = {
-  mode: "production",
   entry: "./js/dashboard_main.js",
   performance: {
     maxAssetSize: 1000000,
@@ -10,6 +9,7 @@ module.exports = {
     filename: "bundle.js",
     path: path.resolve(__dirname, "public"),
   },
+  mode: "production",
   module: {
     rules: [
       {
