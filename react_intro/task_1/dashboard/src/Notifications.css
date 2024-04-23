@@ -1,0 +1,9 @@
+:root {
+    --main-color: #e01d3f;
+}
+
+.Notifications {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-top: 15px;
+}
