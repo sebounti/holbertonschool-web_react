@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/react_intro/task_3/dashboard/static/css/main.bd6261de.css",
-    "main.js": "/react_intro/task_3/dashboard/static/js/main.2d700532.js",
-    "static/media/holberton.jpg": "/react_intro/task_3/dashboard/static/media/holberton.24bab5d633e36ca8d17e.jpg",
-    "index.html": "/react_intro/task_3/dashboard/index.html",
-    "main.bd6261de.css.map": "/react_intro/task_3/dashboard/static/css/main.bd6261de.css.map",
-    "main.2d700532.js.map": "/react_intro/task_3/dashboard/static/js/main.2d700532.js.map"
+    "main.css": "/react_intro/task_3/dashboard/build/static/css/main.bd6261de.css",
+    "main.js": "/react_intro/task_3/dashboard/build/static/js/main.86eda2c6.js",
+    "static/media/holberton.jpg": "/react_intro/task_3/dashboard/build/static/media/holberton.24bab5d633e36ca8d17e.jpg",
+    "index.html": "/react_intro/task_3/dashboard/build/index.html",
+    "main.bd6261de.css.map": "/react_intro/task_3/dashboard/build/static/css/main.bd6261de.css.map",
+    "main.86eda2c6.js.map": "/react_intro/task_3/dashboard/build/static/js/main.86eda2c6.js.map"
   },
   "entrypoints": [
     "static/css/main.bd6261de.css",
-    "static/js/main.2d700532.js"
+    "static/js/main.86eda2c6.js"
   ]
 }
