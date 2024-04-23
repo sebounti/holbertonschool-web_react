@@ -1,33 +1,43 @@
 const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.js", // Point d'entrée de votre application
+  mode: "development",
+  devtool: "inline-source-map",
+  entry: "./src/index.js",
   output: {
-    filename: "bundle.js", // Le nom du fichier de sortie
-    path: path.resolve(__dirname, "dist"), // Le chemin du dossier de sortie
+    filename: "bundle.js",
+    path: path.resolve("./dist"),
   },
-  devtool: "inline-source-map", // Pour les source maps
+  devServer: {
+    hot: true,
+    contentBase: path.resolve("./dist"),
+    compress: true,
+    port: 8564,
+  },
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"], // Pour charger et injecter des styles CSS
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        loader: "babel-loader",
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        type: "asset/resource", // Charge et émet les fichiers d'images
+        test: /\.css$/i,
+        use: ["style-loader", "css-loader"],
+      },
+      {
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          "file-loader",
+          {
+            loader: "image-webpack-loader",
+            options: {
+              bypassOnDebug: true, // webpack@1.x
+              disable: true, // webpack@2.x and newer
+            },
+          },
+        ],
       },
     ],
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: "Development", // Le titre de votre page HTML
-      template: "src/index.html", // Le template HTML
-    }),
-  ],
-  devServer: {
-    contentBase: "./dist", // Dossier source pour le serveur de développement
-    hot: true, // Active le hot reloading
   },
 };

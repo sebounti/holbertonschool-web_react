@@ -1,9 +1,14 @@
-import "./style.css"; // Exemple d'importation de style
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import Notifications from "./Notifications";
 
-function component() {
-  const element = document.createElement("div");
-  element.innerHTML = "Bonjour le monde";
-  return element;
-}
-
-document.body.appendChild(component());
+ReactDOM.render(
+  <React.StrictMode>
+    <div className="root-notifications">
+      <Notifications />
+    </div>
+    <App />
+  </React.StrictMode>,
+  document.getElementById("root"),
+);
