@@ -1,55 +1,83 @@
-import React, { Component } from "react";
-import Notifications from "../Notifications/Notifications";
-import Header from "../Header/Header";
-import Login from "../Login/Login";
-import CourseList from "../CourseList/CourseList";
-import Footer from "../Footer/Footer";
-import PropTypes from "prop-types";
-import { getLatestNotification } from "../utils/utils";
+import React, { Component, Fragment } from "react";
+import PropTypes from "prop-types"; // Import de PropTypes
+
 import "./App.css";
-
-const listCourses = [
-  { id: 1, name: "ES6", credit: 60 },
-  { id: 2, name: "Webpack", credit: 20 },
-  { id: 3, name: "React", credit: 40 },
-];
-
-const listNotifications = [
-  { id: 1, type: "default", value: "New course available" },
-  { id: 2, type: "urgent", value: "New resume available" },
-  { id: 3, type: "urgent", html: { __html: getLatestNotification() } },
-];
+import Header from "../Header/Header.js";
+import Login from "../Login/Login.js";
+import Footer from "../Footer/Footer.js";
+import Notifications from "../Notifications/Notifications.js";
+import CourseList from "../CourseList/CourseList";
+import { getLatestNotification } from "../utils/utils";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
+  // Méthode render() pour définir le rendu du composant
   render() {
+    // Utilisation de this.props pour accéder aux props
     const { isLoggedIn } = this.props;
+
+    // Déclaration des constantes listNotifications et listCourses
+    const i = 0;
+    const listNotifications = [
+      {
+        id: i++,
+        type: "default",
+        value: "New course available",
+      },
+      {
+        id: i++,
+        type: "urgent",
+        value: "New resume available",
+      },
+      {
+        id: i++,
+        type: "urgent",
+        html: { __html: getLatestNotification() },
+      },
+    ];
+
+    const listCourses = [
+      {
+        id: 1,
+        name: "ES6",
+        credit: 60,
+      },
+      {
+        id: 2,
+        name: "Webpack",
+        credit: 20,
+      },
+      {
+        id: 3,
+        name: "React",
+        credit: 40,
+      },
+    ];
+
+    // Rendu du composant avec JSX
     return (
-      <>
-        <Notifications listNotifications={listNotifications} />
+      <Fragment>
         <div className="App">
-          <Header />
-        </div>
-        <div className="App-body">
-          {!isLoggedIn ? <Login /> : <CourseList listCourses={listCourses} />}
-        </div>
-        <div className="App-footer">
+          <div className="upperside">
+            <Notifications listNotifications={listNotifications} />
+            <Header />
+          </div>
+          {isLoggedIn === false && <Login />}
+          {isLoggedIn === true && <CourseList listCourses={listCourses} />}
           <Footer />
         </div>
-      </>
+      </Fragment>
     );
   }
 }
 
-App.defaultProps = {
-  isLoggedIn: false,
+// Définition de propTypes pour valider les props
+App.propTypes = {
+  isLoggedIn: PropTypes.bool, // La prop isLoggedIn doit être de type booléen
 };
 
-App.propTypes = {
-  isLoggedIn: PropTypes.bool,
+// Définition de defaultProps pour fournir une valeur par défaut à la prop
+App.defaultProps = {
+  isLoggedIn: false, // Valeur par défaut pour la prop isLoggedIn
 };
 
 export default App;
