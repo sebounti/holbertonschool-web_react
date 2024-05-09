@@ -1,0 +1,46 @@
+{
+	"name": "dashboard",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+	  "start": "webpack-dev-server --mode development --config config/webpack.config.js",
+	  "build": "webpack --config webpack.config.js --mode production",
+	  "test": "jest",
+	  "test-watch": "jest --watch",
+	  "clear-jest-cache": "jest --clearCache"
+	},
+	"keywords": [],
+	"author": "LENNE Sebastien",
+	"license": "ISC",
+	"devDependencies": {
+	  "@babel/core": "^7.24.4",
+	  "@babel/preset-env": "^7.24.4",
+	  "@wojtekmaj/enzyme-adapter-react-17": "^0.8.0",
+	  "babel-jest": "^29.7.0",
+	  "babel-loader": "^9.1.3",
+	  "css-loader": "^7.1.1",
+	  "html-webpack-plugin": "^5.6.0",
+	  "identity-obj-proxy": "^3.0.0",
+	  "image-webpack-loader": "^8.1.0",
+	  "source-map-loader": "^5.0.0",
+	  "style-loader": "^4.0.0",
+	  "webpack": "^5.91.0",
+	  "webpack-cli": "^5.1.4",
+	  "webpack-dev-server": "^5.0.4"
+	},
+	"dependencies": {
+	  "react": "^17.0.2",
+	  "react-dom": "^17.0.2"
+	},
+	"jest": {
+	  "moduleNameMapper": {
+		"\\.(css|sass)$": "identity-obj-proxy",
+		"\\.(jpg|jpeg|png|gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js"
+	  },
+	  "transform": {
+		"^.+\\.(js|jsx)$": "babel-jest"
+	  },
+	  "setupFilesAfterEnv": ["./dashboard/config/setupTests.js"]
+	}
+  }
