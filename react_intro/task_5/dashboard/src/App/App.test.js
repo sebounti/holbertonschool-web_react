@@ -1,5 +1,5 @@
 import { shallow } from "enzyme";
-import App from "./App";
+import App from "./App.js";
 
 describe("<App />", () => {
   it("renders a div with the class App-header", () => {
