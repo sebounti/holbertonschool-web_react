@@ -2,6 +2,7 @@ import { shallow } from "enzyme";
 import React from "react";
 import Header from "./Header";
 import { StyleSheetTestUtils } from "aphrodite";
+StyleSheetTestUtils.suppressStyleInjection();
 
 describe("<Header />", () => {
   beforeAll(() => {

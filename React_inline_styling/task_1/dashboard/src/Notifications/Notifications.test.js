@@ -3,6 +3,7 @@ import React from "react";
 import Notifications from "./Notifications";
 import { getLatestNotification } from "../utils/utils";
 import { StyleSheetTestUtils } from "aphrodite";
+StyleSheetTestUtils.suppressStyleInjection();
 
 describe("<Notifications />", () => {
   let listNotifications;
