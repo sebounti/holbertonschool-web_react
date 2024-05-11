@@ -7,8 +7,7 @@ const headerRowStyles = { backgroundColor: "#deb5b545" };
 function CourseListRow({ isHeader, textFirstCell, textSecondCell }) {
   let element;
 
-  if (isHeader === true) {
-    //
+  if (isHeader) {
     if (textSecondCell === null) {
       element = <th colSpan="2">{textFirstCell}</th>;
     } else {
@@ -19,8 +18,7 @@ function CourseListRow({ isHeader, textFirstCell, textSecondCell }) {
         </>
       );
     }
-    //
-  } else if (isHeader === false) {
+  } else {
     element = (
       <>
         <td>{textFirstCell}</td>
@@ -29,12 +27,9 @@ function CourseListRow({ isHeader, textFirstCell, textSecondCell }) {
     );
   }
 
-  let isHeaderStyle;
+  const rowStyle = isHeader ? headerRowStyles : rowStyles;
 
-  if (isHeader) isHeaderStyle = headerRowStyles;
-  else isHeaderStyle = rowStyles;
-
-  return <tr style={isHeaderStyle}>{element}</tr>;
+  return <tr style={rowStyle}>{element}</tr>;
 }
 
 CourseListRow.defaultProps = {
